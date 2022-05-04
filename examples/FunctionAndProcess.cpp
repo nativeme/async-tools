@@ -50,6 +50,9 @@ void setup(){
     Serial.begin(115200);
     Serial.printf("entered setup block at %lu millis\n", millis());
 
+    Serial.println("Remember that if you using Arduino's serial monitor you should select 'Carriage return' input mode (next to baud selector).");
+    Serial.println("In Platformio's serial monitor that is default mode so everything should work out of the box.");
+    
     Serial.println("Enter text to echo: (builtin led should blink even while waiting for input!)");
     String out = async_readline()->await()->value();
     

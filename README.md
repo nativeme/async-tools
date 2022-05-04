@@ -15,6 +15,7 @@ Very useful in situations, where one event happens, and you want to trigger
 a series of events spread out over time without blocking.
 
 See full example: [examples](/../../tree/master/examples/Call.cpp)
+##### Sample snippet:
 ``` c++
 async::call()->then([](){
     Serial.println("Led builtin have turned on");
@@ -36,6 +37,7 @@ That could be for example a sensor reading and sending data over the network.
 If you declare few blinker processes like shown below all leds will blink asynchronously independent.
 
 See full example: [examples](/../../tree/master/examples/Processes.cpp) 
+##### Sample snippet:
 ``` c++
 async::Process blinker = async::Process(Params([](){
     blinker.set_name("blinker");
@@ -57,8 +59,7 @@ async::Process blinker = async::Process(Params([](){
 ## Async function (experimental ⚠)
 An approach that allows the use of linguistically similar mechanisms
 to high-level languages such as Python, C # etc ...
-
-See full example: [examples](/../../tree/master/examples/FunctionAndProcess.cpp) 
+##### Sample snippet:
 ``` c++
 async::function<String(void)> async_readline = [](){
     static String buf;
@@ -81,4 +82,6 @@ async::function<String(void)> async_readline = [](){
 
 String out = async_readline()->await()->value();
 ```
-Examples: [examples](/../../tree/master/examples)
+See full example: [examples](/../../tree/master/examples/FunctionAndProcess.cpp)
+
+See all examples: [examples](/../../tree/master/examples)
