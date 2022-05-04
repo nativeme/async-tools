@@ -1,4 +1,4 @@
-# iter-tools
+# async-tools
 
 [![PlatformIO Registry](https://badges.registry.platformio.org/packages/nativeme/library/async-tools.svg)](https://registry.platformio.org/libraries/nativeme/async-tools)
 
@@ -14,7 +14,7 @@ Simple one-time call that will execute statements in order.
 Very useful in situations, where one event happens, and you want to trigger
 a series of events spread out over time without blocking.
 
-See full example: [examples](/../../tree/master/examples)
+See full example: [examples](/../../tree/master/examples/Call.cpp)
 ``` c++
 async::call()->then([](){
     Serial.println("Led builtin have turned on");
@@ -35,7 +35,7 @@ Processes are designed for maintaining cyclic events that happen in certain inte
 That could be for example a sensor reading and sending data over the network.
 If you declare few blinker processes like shown below all leds will blink asynchronously independent.
 
-See full example: [examples](/../../tree/master/examples) 
+See full example: [examples](/../../tree/master/examples/Processes.cpp) 
 ``` c++
 async::Process blinker = async::Process(Params([](){
     blinker.set_name("blinker");
@@ -58,7 +58,7 @@ async::Process blinker = async::Process(Params([](){
 An approach that allows the use of linguistically similar mechanisms
 to high-level languages such as Python, C # etc ...
 
-See full example: [examples](/../../tree/master/examples) 
+See full example: [examples](/../../tree/master/examples/FunctionAndProcess.cpp) 
 ``` c++
 async::function<String(void)> async_readline = [](){
     static String buf;
