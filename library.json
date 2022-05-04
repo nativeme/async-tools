@@ -1,0 +1,35 @@
+{
+    "name": "async-tools",
+    "version": "1.0.0",
+    "description": "Library providing asynchrony to the microcontrollers in few popular trends known from higher level programing languages.",
+    "keywords": "async, await, asynchrony, tools",
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/nativeme/async-tools.git"
+    },
+    "authors":
+    [
+      {
+        "name": "Łukasz Kaniak",
+        "email": "lukaszkaniak@gmail.com",
+        "url": "https://github.com/nativeme/",
+        "maintainer": true
+      }
+    ],
+
+    "export" : {
+        "exclude":
+        [
+            ".vdcode",
+            "*.ps1",
+            "notes.cpp"
+        ]
+    },
+
+    "license": "MIT",
+    "homepage": "https://github.com/nativeme/async-tools.git",
+    "dependencies": {},
+    "frameworks": ["Arduino"],
+    "platforms": "*"
+  }
