@@ -8,24 +8,15 @@
 #include "Process.hpp"
 #include "CodeBlock.hpp"
 
-// async::Process blinker = Params([](){
-//     blinker.set_interval(100);
-//     blinker.on_create = [](){
-//         pinMode(LED_BUILTIN, OUTPUT);
-//     };
-//     blinker.on_working = [](){
-//         digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
-//     };
-// });
-
-async::CodeBlock classic_blink = [](){
-    static uint32_t target = millis() + 200;
-    if(millis() >= target){
+async::Process blinker = Params([](){
+    blinker.set_interval(100);
+    blinker.on_create = [](){
+        pinMode(LED_BUILTIN, OUTPUT);
+    };
+    blinker.on_working = [](){
         digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
-        target += 200;
-    }
-
-};
+    };
+});
 
 async::function<String(void)> async_readline = [](){
     static String buf;
@@ -51,7 +42,6 @@ async::function<String(void)> async_readline = [](){
 };
 
 void setup(){
-    pinMode(LED_BUILTIN, OUTPUT);
     Serial.begin(115200);
     Serial.printf("entered setup block at %lu millis\n", millis());
 

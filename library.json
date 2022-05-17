@@ -22,6 +22,9 @@
         "exclude":
         [
             ".vdcode",
+            "src/main.cpp",
+            "platformio.ini",
+            "test",
             "*.ps1",
             "notes.cpp"
         ]
