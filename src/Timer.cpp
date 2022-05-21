@@ -61,6 +61,10 @@ uint32_t Timer::get_base_time() const {
     return this->base_value;
 }
 
+uint32_t Timer::get_start_time() const {
+    return this->start_time;
+};
+
 void Timer::start(){
     start_time = read_time();
     target_time = start_time + base_value;

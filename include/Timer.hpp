@@ -42,6 +42,7 @@ public:
     void set_time(const uint32_t &time);
     void add_time(const int32_t &time);
     uint32_t get_base_time() const;
+    uint32_t get_start_time() const;
     void set_resolution(const Resolution &&resolution);
     void set_pulsing(const bool &is_pulsing = true);
     void start();
