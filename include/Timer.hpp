@@ -11,7 +11,7 @@ class Timer :
 public ILoopable
 {
 private:
-    uint32_t read_time();
+    uint32_t read_time() const;
     bool pulse = false;
     uint8_t  state = 0;
     uint8_t resolution = 0;
@@ -43,13 +43,14 @@ public:
     void add_time(const int32_t &time);
     uint32_t get_base_time() const;
     uint32_t get_start_time() const;
+    uint32_t get_time_passed() const;
     void set_resolution(const Resolution &&resolution);
     void set_pulsing(const bool &is_pulsing = true);
     void start();
     void clear();
     const bool is_finished() const;
     const bool at_state(const Timer::State &&state) const;
-    const bool have_passed(const uint32_t &time);
+    const bool have_passed(const uint32_t &time) const;
     void loop() override;
 };
 };

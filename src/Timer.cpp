@@ -36,7 +36,7 @@ void Timer::set_pulsing(const bool &is_pulsing){
     this->pulse = is_pulsing;
 }
 
-uint32_t Timer::read_time(){
+uint32_t Timer::read_time() const {
     switch (resolution)
     {
     case Resolution::millis_res:
@@ -65,6 +65,10 @@ uint32_t Timer::get_start_time() const {
     return this->start_time;
 };
 
+uint32_t Timer::get_time_passed() const {
+    return read_time() - start_time;
+};
+
 void Timer::start(){
     start_time = read_time();
     target_time = start_time + base_value;
@@ -89,7 +93,7 @@ const bool Timer::at_state(const Timer::State &&state) const {
     return this->state == state;
 };
 
-const bool Timer::have_passed(const uint32_t &time){
+const bool Timer::have_passed(const uint32_t &time) const {
     return read_time() - start_time >= time;
 };
 
