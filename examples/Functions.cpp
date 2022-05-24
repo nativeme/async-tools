@@ -1,5 +1,5 @@
 /**
- * @file AsyncFunctions_example1.cpp
+ * @file AsyncFunctions.cpp
  * @author Łukasz Kaniak - nativeme (lukaszkaniak@gmail.com)
  * @brief 
  * This is example file for the "Async Function" of async-tools library.

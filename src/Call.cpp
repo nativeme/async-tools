@@ -19,7 +19,7 @@ Call* Call::then(const std::function<void()> &&code_block){
     });
     return this;
 }
-Call* Call::wait(const uint32_t &&time){
+Call* Call::wait(const uint32_t &time){
     
     code_chain.push_back([this, time](){
         switch (async_timer.get_state()){

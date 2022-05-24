@@ -8,16 +8,7 @@ Timer::Timer(const Params &&builder){
         builder.builder();
         Runtime::loopables.push_back(this);
     };
-Timer::Timer(const uint32_t &time){
-        this->base_value = time;
-        Runtime::loopables.push_back(this);
-    };
-Timer::Timer(const uint32_t &time, bool &&auto_start){
-        this->base_value = time;
-        Runtime::loopables.push_back(this);
-        this->start();
-    };
-Timer::Timer(const uint32_t &time, const bool &&auto_start, const bool &&pulse){
+Timer::Timer(const uint32_t &time, const bool &auto_start, const bool &pulse){
         this->base_value = time;
         this->set_pulsing(pulse);
         Runtime::loopables.push_back(this);
@@ -99,17 +90,15 @@ const bool Timer::have_passed(const uint32_t &time) const {
 
 void Timer::loop() {
     switch (state){
-    case State::idle:
-        break;
     case State::countdown:
         if(read_time() >= target_time){
-            start_time = 0;
-            target_time = 0;
             state = State::finished;
         };
         break;
     case State::finished:
         if(pulse) start();
+        break;
+    case State::idle:
         break;
     default:
         break;

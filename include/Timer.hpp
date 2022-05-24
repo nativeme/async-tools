@@ -10,7 +10,7 @@ namespace async{
 class Timer : 
 public ILoopable
 {
-private:
+protected:
     uint32_t read_time() const;
     bool pulse = false;
     uint8_t  state = 0;
@@ -21,9 +21,8 @@ private:
 public:
     enum State{
         idle = 0,
-        started = 1,
-        countdown = 2,
-        finished = 3,
+        countdown = 1,
+        finished = 2
     }; 
 
     enum Resolution{
@@ -32,11 +31,9 @@ public:
     };
 
     Timer();
-    Timer(const uint32_t &time);
-    Timer(const Params &&param);
-    Timer(const uint32_t &time, bool &&auto_start);
-    Timer(const uint32_t &time, const bool &&auto_start, const bool &&pulse);
-    ~Timer() override;
+    Timer(const Params &&builder);
+    Timer(const uint32_t &time, const bool &auto_start = false, const bool &pulse = false);
+    virtual ~Timer() override;
 
     const uint8_t get_state() const;
     void set_time(const uint32_t &time);
@@ -51,7 +48,7 @@ public:
     const bool is_finished() const;
     const bool at_state(const Timer::State &&state) const;
     const bool have_passed(const uint32_t &time) const;
-    void loop() override;
+    virtual void loop() override;
 };
 };
 

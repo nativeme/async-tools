@@ -26,7 +26,7 @@ public:
     
     Call* then(const std::function<bool()> &&code_block);
     Call* then(const std::function<void()> &&code_block);
-    Call* wait(const uint32_t &&time);
+    Call* wait(const uint32_t &time);
 
     void loop() override;
 };
