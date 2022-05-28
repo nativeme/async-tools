@@ -44,7 +44,7 @@ public:
     void set_resolution(const Resolution &&resolution);
     void set_pulsing(const bool &is_pulsing = true);
     void start();
-    void clear();
+    virtual void clear();
     const bool is_finished() const;
     const bool at_state(const Timer::State &&state) const;
     const bool have_passed(const uint32_t &time) const;
