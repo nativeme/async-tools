@@ -1,6 +1,6 @@
 {
     "name": "async-tools",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "Library providing asynchrony to the microcontrollers in few popular trends known from higher level programing languages.",
     "keywords": "async, await, asynchrony, tools",
     "repository":

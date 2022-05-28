@@ -12,7 +12,8 @@ Timer::Timer(const uint32_t &time, const bool &auto_start, const bool &pulse){
         this->base_value = time;
         this->set_pulsing(pulse);
         Runtime::loopables.push_back(this);
-        this->start();
+        if(auto_start)
+            this->start();
     };
 Timer::~Timer(){
     for (size_t i = 0; i < async::Runtime::loopables.size(); i++){
